@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		932D119E2BD6776F00E6DB79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D119D2BD6776F00E6DB79 /* AppDelegate.swift */; };
 		932D11A02BD6776F00E6DB79 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D119F2BD6776F00E6DB79 /* SceneDelegate.swift */; };
-		932D11A22BD6776F00E6DB79 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D11A12BD6776F00E6DB79 /* ViewController.swift */; };
+		932D11A22BD6776F00E6DB79 /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932D11A12BD6776F00E6DB79 /* FilmsViewController.swift */; };
 		932D11A52BD6776F00E6DB79 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 932D11A42BD6776F00E6DB79 /* Base */; };
 		932D11A72BD6777300E6DB79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 932D11A62BD6777300E6DB79 /* Assets.xcassets */; };
 		932D11AA2BD6777300E6DB79 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 932D11A92BD6777300E6DB79 /* Base */; };
@@ -19,7 +19,7 @@
 		932D119A2BD6776F00E6DB79 /* CinemaStar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CinemaStar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		932D119D2BD6776F00E6DB79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		932D119F2BD6776F00E6DB79 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		932D11A12BD6776F00E6DB79 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		932D11A12BD6776F00E6DB79 /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 		932D11A42BD6776F00E6DB79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		932D11A62BD6777300E6DB79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		932D11A92BD6777300E6DB79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 			children = (
 				932D119D2BD6776F00E6DB79 /* AppDelegate.swift */,
 				932D119F2BD6776F00E6DB79 /* SceneDelegate.swift */,
-				932D11A12BD6776F00E6DB79 /* ViewController.swift */,
+				932D11A12BD6776F00E6DB79 /* FilmsViewController.swift */,
 				932D11A32BD6776F00E6DB79 /* Main.storyboard */,
 				932D11A62BD6777300E6DB79 /* Assets.xcassets */,
 				932D11A82BD6777300E6DB79 /* LaunchScreen.storyboard */,
@@ -75,8 +75,10 @@
 			buildConfigurationList = 932D11AE2BD6777300E6DB79 /* Build configuration list for PBXNativeTarget "CinemaStar" */;
 			buildPhases = (
 				932D11962BD6776F00E6DB79 /* Sources */,
-				932D11972BD6776F00E6DB79 /* Frameworks */,
+				932D11B32BD67EC600E6DB79 /* SwiftFormat */,
+				932D11B22BD67C3B00E6DB79 /* SwiftLint */,
 				932D11982BD6776F00E6DB79 /* Resources */,
+				932D11972BD6776F00E6DB79 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +135,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		932D11B22BD67C3B00E6DB79 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftlint > /dev/null; then\n swiftlint\nelse\n echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		932D11B32BD67EC600E6DB79 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif which swiftformat > /dev/null; then\n swiftformat .\nelse\n echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		932D11962BD6776F00E6DB79 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932D11A22BD6776F00E6DB79 /* ViewController.swift in Sources */,
+				932D11A22BD6776F00E6DB79 /* FilmsViewController.swift in Sources */,
 				932D119E2BD6776F00E6DB79 /* AppDelegate.swift in Sources */,
 				932D11A02BD6776F00E6DB79 /* SceneDelegate.swift in Sources */,
 			);
@@ -203,7 +248,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -218,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -266,7 +311,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -275,7 +320,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
