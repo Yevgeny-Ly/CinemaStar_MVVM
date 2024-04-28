@@ -1,0 +1,15 @@
+{
+  "originHash" : "8bb5557ef4bd33da053760f4e01c84176b0e7011f44ae263d3d7a7bdd623c9f9",
+  "pins" : [
+    {
+      "identity" : "keychain-swift?tab=readme-ov-file",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/keychain-swift?tab=readme-ov-file",
+      "state" : {
+        "revision" : "75677d8be3c50898c8ffd0d107f88aa2740301fc",
+        "version" : "22.0.0"
+      }
+    }
+  ],
+  "version" : 3
+}
