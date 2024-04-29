@@ -43,8 +43,8 @@ final class FilmsController: UIViewController {
 
     private var viewModel: FilmsViewModelProtocol?
     private var filmsNetworkService: [FilmsDTO]?
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     private let layout = UICollectionViewFlowLayout()
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
     // MARK: - Initializers
 

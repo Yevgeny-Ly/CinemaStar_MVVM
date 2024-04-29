@@ -5,6 +5,7 @@ import UIKit
 
 extension UIViewController {
     /// Расширение для вызова алерта
+    /// - Parameter message: сообщение для пользователя
     func callAlert(message: String) {
         let alert = UIAlertController(title: "Упс", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "Ок", style: .cancel)
