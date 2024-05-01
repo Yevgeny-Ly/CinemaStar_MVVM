@@ -1,10 +1,12 @@
 // SceneDelegate.swift
 // Copyright © RoadMap. All rights reserved.
 
+import KeychainSwift
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+    private var applicationCoordinator: ApplicationCoordinator?
 
     func scene(
         _ scene: UIScene,
@@ -17,15 +19,12 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     private func configureSceneDelegate(windowScene: UIWindowScene) {
         window = UIWindow(windowScene: windowScene)
+
+        let networkService = NetworkService()
+        let builder = AppBulder(networkService: networkService)
+
+        window?.makeKeyAndVisible()
+        applicationCoordinator = ApplicationCoordinator(appBuilder: builder, networkService: networkService)
+        applicationCoordinator?.start()
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) {}
-
-    func sceneDidBecomeActive(_ scene: UIScene) {}
-
-    func sceneWillResignActive(_ scene: UIScene) {}
-
-    func sceneWillEnterForeground(_ scene: UIScene) {}
-
-    func sceneDidEnterBackground(_ scene: UIScene) {}
 }
